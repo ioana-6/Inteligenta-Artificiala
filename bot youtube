@@ -1,0 +1,42 @@
+import pyautogui
+import keyboard
+import time
+
+def cautare_google():
+    if pyautogui.locateOnScreen(r'C:\Users\PC\Desktop\New folder\browser.png', confidence=0.7) != None:
+        camp_google=pyautogui.locateOnScreen(r'C:\Users\PC\Desktop\New folder\browser.png', confidence=0.7)
+        pyautogui.click(camp_google)
+        time.sleep(1)
+        pyautogui.write('https://youtube.com')
+        pyautogui.press('enter')
+        time.sleep(5)
+        if pyautogui.locateOnScreen(r'C:\Users\PC\Desktop\New folder\search-youtube.png', confidence=0.7) != None:
+            camp_youtube=pyautogui.locateOnScreen(r'C:\Users\PC\Desktop\New folder\search-youtube.png', confidence=0.7)
+            pyautogui.click(camp_youtube)
+            time.sleep(1)
+            pyautogui.write('zona IT')
+            pyautogui.press('enter')
+        time.sleep(2)
+        if pyautogui.locateOnScreen(r'C:\Users\PC\Desktop\New folder\profil-zona-IT.png', confidence=0.7) != None:
+            buton=pyautogui.locateOnScreen(r'C:\Users\PC\Desktop\New folder\subscribe.png', confidence=0.7)
+            pyautogui.click(buton)
+            time.sleep(2)
+            pyautogui.click(r'C:\Users\PC\Desktop\New folder\profil-zona-IT.png')
+            time.sleep(4)
+            pyautogui.click(r'C:\Users\PC\Desktop\New folder\videos.png')
+        
+    else:
+        print ("IMAGINEA NU SE AFLA PE ECRAN")
+
+cautare_google()
+time.sleep(2)
+
+def coordonate():
+    print(pyautogui.position())
+    pyautogui.dragTo(x=639, y=778)
+    pyautogui.keyDown('CTRL')
+    pyautogui.click()
+    pyautogui.keyUp('CTRL')
+
+##pyautogui.hotkey('CTRL',pyautogui.click(coordonate)) while(keyboard.is_pressed == False): pyautogui.scroll Point(x=639, y=578)
+coordonate()
